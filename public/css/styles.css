@@ -132,6 +132,7 @@ button:disabled {
     background-color: #333744;
     height: 60px;
     width: 100%;
+    flex-shrink: 0;
 }
 
 .chat__main::after {
