@@ -12,6 +12,7 @@
 
 html {
     font-size: 16px;
+    height: 100%;
 }
 
 input {
@@ -22,6 +23,7 @@ body {
     line-height: 1.4;
     color: #333333;
     font-family: Helvetica, Arial, sans-serif;
+    height: 100%;
 }
 
 h1 {
@@ -91,6 +93,10 @@ button:disabled {
 
 /* Chat Page Layout */
 
+.chat {
+    height: 100%;
+}
+
 .chat__sidebar {
     height: 100vh;
     color: white;
@@ -110,7 +116,7 @@ button:disabled {
 .chat__main {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     transition: all 0.5s;
 }
