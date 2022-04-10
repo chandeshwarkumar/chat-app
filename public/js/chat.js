@@ -4,7 +4,11 @@ const $messageFormInput = $messageForm.querySelector('input')
 const $messageFormButton = $messageForm.querySelector('button')
 const $sendLocationButton = document.querySelector('#sendLocation')
 const $messages = document.querySelector('#messages')
+var innerMsg
 
+window.onload = function() {
+    innerMsg = document.getElementsByClassName('inner-message')
+}
 const messageTemplate = document.querySelector('#message-template').innerHTML
 const locationMsgTemplate = document.querySelector('#locationMsg-template').innerHTML
 const sidebarTemplate = document.querySelector('#sidebar-template').innerHTML
@@ -33,6 +37,21 @@ socket.on('message', (message) => {
         createdAt: moment(message.createdAt).format('h:mm a')
     })
     $messages.insertAdjacentHTML('beforeend', html)
+    if (message.username === username) {
+        innerMsg = document.getElementsByClassName('inner-message')
+        const $newMessage = $messages.lastElementChild
+        $newMessage.classList.add("sameUser")
+        f = innerMsg[innerMsg.length - 1]
+        f.setAttribute('style', 'background-color: #7C5CBF; color:#fff')
+        para = f.children
+        spans = para[0].children
+        spans[1].style.color = '#fff'
+
+    } else {
+        const $newMessage = $messages.lastElementChild
+        $newMessage.classList.add("other-user")
+            //innerMsg.lastElementChild.classList.add("other-user-inner-msg")
+    }
     autoscroll()
 })
 
@@ -43,6 +62,22 @@ socket.on('locationMsg', (locationObject) => {
         createdAt: moment(locationObject.createdAt).format('h:mm a')
     })
     $messages.insertAdjacentHTML('beforeend', html)
+    if (locationObject.username === username) {
+        innerMsg = document.getElementsByClassName('inner-message')
+        const $newMessage = $messages.lastElementChild
+        $newMessage.classList.add("sameUser")
+        f = innerMsg[innerMsg.length - 1]
+        f.setAttribute('style', 'background-color: #7C5CBF; color:#fff')
+        para = f.children
+        para[1].children[0].setAttribute('style', 'color: #fff !important')
+        spans = para[0].children
+        spans[1].style.color = '#fff'
+
+    } else {
+        const $newMessage = $messages.lastElementChild
+        $newMessage.classList.add("other-user")
+            //innerMsg.lastElementChild.classList.add("other-user-inner-msg")
+    }
     autoscroll()
 })
 

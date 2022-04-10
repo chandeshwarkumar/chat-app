@@ -2,6 +2,7 @@
 
 :root {
     --selection-background: none;
+    --message-background: #FEFEFE;
 }
 
 * {
@@ -157,6 +158,7 @@ button:disabled {
     flex-grow: 1;
     padding: 24px 24px 0 24px;
     overflow-y: scroll;
+    background-color: #EEEFEA;
 }
 
 
@@ -164,6 +166,35 @@ button:disabled {
 
 .message {
     margin-bottom: 16px;
+}
+
+.inner-message {
+    width: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: var(--message-background);
+}
+
+.other-user {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sameUser {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.other-user-inner-msg {
+    background-color: #FEFEFE;
+}
+
+.same-user-inner-msg {
+    background-color: #7C5CBF;
+    color: #FEFEFE;
 }
 
 .message__name {

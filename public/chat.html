@@ -39,21 +39,25 @@
 
     <script id="message-template" type="text/html">
         <div class="message">
-            <p>
-                <span class="message__name">{{username}}</span>
-                <span class="message__meta">{{createdAt}}</span>
-            </p>
-            <p>{{message}}</p>
+            <div class="inner-message">
+                <p>
+                    <span class="message__name">{{username}}</span>
+                    <span class="message__meta">{{createdAt}}</span>
+                </p>
+                <p>{{message}}</p>
+            </div>
         </div>
     </script>
 
     <script id="locationMsg-template" type="text/html">
-        <div>
-            <p>
-                <span class="message__name">{{username}}</span>
-                <span class="message__meta">{{createdAt}}</span>
-            </p>
-            <p><a href="{{url}}" target="_blank">This is my location</a></p>
+        <div class="message">
+            <div class="inner-message">
+                <p>
+                    <span class="message__name">{{username}}</span>
+                    <span class="message__meta">{{createdAt}}</span>
+                </p>
+                <p><a href="{{url}}" target="_blank">This is my location</a></p>
+            </div>
         </div>
     </script>
 
