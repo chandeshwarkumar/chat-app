@@ -37,7 +37,10 @@ socket.on('message', (message) => {
         createdAt: moment(message.createdAt).format('h:mm a')
     })
     $messages.insertAdjacentHTML('beforeend', html)
+    console.log(username)
+    console.log(message.username)
     if (message.username === username) {
+        console.log('same user detected')
         innerMsg = document.getElementsByClassName('inner-message')
         const $newMessage = $messages.lastElementChild
         $newMessage.classList.add("sameUser")
@@ -63,8 +66,12 @@ socket.on('locationMsg', (locationObject) => {
     })
     $messages.insertAdjacentHTML('beforeend', html)
     if (locationObject.username === username) {
+        console.log('same username detected')
         innerMsg = document.getElementsByClassName('inner-message')
+        console.log(innerMsg)
         const $newMessage = $messages.lastElementChild
+        console.log('last element of new message')
+        console.log($newMessage)
         $newMessage.classList.add("sameUser")
         f = innerMsg[innerMsg.length - 1]
         f.setAttribute('style', 'background-color: #7C5CBF; color:#fff')
