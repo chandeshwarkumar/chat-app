@@ -37,9 +37,7 @@ socket.on('message', (message) => {
         createdAt: moment(message.createdAt).format('h:mm a')
     })
     $messages.insertAdjacentHTML('beforeend', html)
-    console.log(username)
-    console.log(message.username)
-    if (message.username === username) {
+    if (message.username.toLowerCase() === username.toLowerCase()) {
         console.log('same user detected')
         innerMsg = document.getElementsByClassName('inner-message')
         const $newMessage = $messages.lastElementChild
@@ -65,7 +63,7 @@ socket.on('locationMsg', (locationObject) => {
         createdAt: moment(locationObject.createdAt).format('h:mm a')
     })
     $messages.insertAdjacentHTML('beforeend', html)
-    if (locationObject.username === username) {
+    if (locationObject.username.toLowerCase() === username.toLowerCase()) {
         console.log('same username detected')
         innerMsg = document.getElementsByClassName('inner-message')
         console.log(innerMsg)
