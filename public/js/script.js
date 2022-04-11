@@ -6,7 +6,6 @@ const sidebar = document.getElementsByClassName('chat__sidebar')
 var sideBarOpen = false
 
 menuBtn.addEventListener('click', (e) => {
-    console.log('clicked')
     container[0].style.setProperty("--selection-background", "block");
     e.stopPropagation()
     sidebar[0].style.left = '0'
@@ -14,7 +13,6 @@ menuBtn.addEventListener('click', (e) => {
     sideBarOpen = true
 })
 container[0].addEventListener('click', () => {
-    console.log('clicked container')
     if (sideBarOpen) {
         sidebar[0].style.left = '-225px'
         sidebar[0].style.boxShadow = 'none'
